@@ -21,7 +21,6 @@ $to = "BlessingPatrick0610@outlook.com";
 
 try {
     //Server settings
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER; //Enable verbose debug output
     $mail->isSMTP(); //Send using SMTP
     $mail->Host = 'twentythree.qservers.net'; //Set the SMTP server to send through
     $mail->SMTPAuth = true; //Enable SMTP authentication
@@ -41,7 +40,7 @@ try {
     // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
-    echo 'Horray! \n Message has been sent';
+    echo 'OK';
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
