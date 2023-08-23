@@ -18,11 +18,10 @@ $name = $_POST["name"];
 $from = $_POST["email"];
 $subject = $_POST["subject"];
 $message = $_POST["message"];
-$to = "akinyemisamuel170@gmail.com";
 
 try {
     //Server settings
-    $mail->SMTPDebug = SMTP::DEBUG_CONNECTION;
+    $mail->SMTPDebug = SMTP::DEBUG_OFF;
     $mail->isSMTP();
     $mail->Host = SMTP_HOST;
     $mail->SMTPAuth = true;
@@ -33,19 +32,16 @@ try {
 
     //Recipients
     $mail->setFrom("$from", "$name");
-    $mail->addAddress("$to"); //Add a recipient
+    $mail->addAddress("akinyemisamuel170@gmail.com", 'Samuel Akinyemi'); //Add a recipient
 
     //Content
     $mail->isHTML(true); //Set email format to HTML
-    $mail->Subject = $subject;
-    $mail->Body = $message;
+    $mail->Subject = "$subject";
+    $mail->Body = "$message";
     // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-    if ($mail->send()){
-        echo 'OK';                                                                                                                                                                                                                                                                                                                                                                                                                                  
-    } else {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-    }
+    $mail->send();
+    echo 'OK';
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
