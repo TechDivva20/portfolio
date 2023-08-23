@@ -31,14 +31,14 @@ try {
     $mail->Port = SMTP_PORT; //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom("$from", "$name");
-    $mail->addAddress("akinyemisamuel170@gmail.com", 'Samuel Akinyemi'); //Add a recipient
+    $mail->setFrom('mail@portfolio.sannex.ng', 'Portfolio Contact');
+    $mail->addAddress('BlessingPatrick0610@outlook.com'); //Add a recipient
 
     //Content
     $mail->isHTML(true); //Set email format to HTML
-    $mail->Subject = 'Launch Notification';
-    $mail->Body = "Please notify " . $from;
-    // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    $mail->Subject = $subject;
+    $mail->Body = "<h5>Message from $name ($from)</h5><p>$message</p>";
+    $mail->AltBody = "Message from $name - $from. $message";
 
     $mail->send();
     echo 'OK';
