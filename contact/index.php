@@ -41,8 +41,11 @@ try {
     $mail->Body = "$message";
     // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-    $mail->send();
-    echo 'OK';
+    if ($mail->send()){
+        echo 'OK';                                                                                                                                                                                                                                                                                                                                                                                                                                  
+    } else {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
