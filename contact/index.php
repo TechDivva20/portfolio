@@ -36,8 +36,8 @@ try {
 
     //Content
     $mail->isHTML(true); //Set email format to HTML
-    $mail->Subject = "$subject";
-    $mail->Body = "$message";
+    $mail->Subject = 'Launch Notification';
+    $mail->Body = "Please notify " . $from;
     // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
