@@ -3,6 +3,7 @@
 require '../vendor/PHPMailer-master/src/PHPMailer.php';
 require '../vendor/PHPMailer-master/src/SMTP.php';
 require '../vendor/PHPMailer-master/src/Exception.php';
+require 'config.php';
 
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
@@ -21,13 +22,14 @@ $to = "BlessingPatrick0610@outlook.com";
 
 try {
     //Server settings
-    $mail->isSMTP(); //Send using SMTP
-    $mail->Host = 'twentythree.qservers.net'; //Set the SMTP server to send through
-    $mail->SMTPAuth = true; //Enable SMTP authentication
-    $mail->Username = 'blessing@sannex.ng'; //SMTP username
-    $mail->Password = 'Blessing.sannex'; //SMTP password
+    $mail->SMTPDebug = SMTP::DEBUG_OFF;
+    $mail->isSMTP();
+    $mail->Host = SMTP_HOST;
+    $mail->SMTPAuth = true;
+    $mail->Username = SMTP_USERNAME;
+    $mail->Password = SMTP_PASSWORD;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; //Enable implicit TLS encryption
-    $mail->Port = 465; //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    $mail->Port = SMTP_PORT; //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
     $mail->setFrom("$from", "$name");
