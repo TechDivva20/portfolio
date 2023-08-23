@@ -22,7 +22,7 @@ $to = "akinyemisamuel170@gmail.com";
 
 try {
     //Server settings
-    $mail->SMTPDebug = SMTP::DEBUG_OFF;
+    $mail->SMTPDebug = SMTP::DEBUG_CONNECTION;
     $mail->isSMTP();
     $mail->Host = SMTP_HOST;
     $mail->SMTPAuth = true;
@@ -37,8 +37,8 @@ try {
 
     //Content
     $mail->isHTML(true); //Set email format to HTML
-    $mail->Subject = "$subject";
-    $mail->Body = "$message";
+    $mail->Subject = $subject;
+    $mail->Body = $message;
     // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     if ($mail->send()){
