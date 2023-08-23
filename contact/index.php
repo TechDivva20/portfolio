@@ -18,7 +18,7 @@ $name = $_POST["name"];
 $from = $_POST["email"];
 $subject = $_POST["subject"];
 $message = $_POST["message"];
-$to = "BlessingPatrick0610@outlook.com";
+$to = "akinyemisamuel170@gmail.com";
 
 try {
     //Server settings
@@ -33,7 +33,7 @@ try {
 
     //Recipients
     $mail->setFrom("$from", "$name");
-    $mail->addAddress("$to", 'Blessing Patrick'); //Add a recipient
+    $mail->addAddress("$to"); //Add a recipient
 
     //Content
     $mail->isHTML(true); //Set email format to HTML
