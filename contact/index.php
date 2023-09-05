@@ -1,9 +1,5 @@
 <?php
-
-require '../vendor/PHPMailer-master/src/PHPMailer.php';
-require '../vendor/PHPMailer-master/src/SMTP.php';
-require '../vendor/PHPMailer-master/src/Exception.php';
-require 'config.php';
+require '../../config/mail.php';
 
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
@@ -31,14 +27,17 @@ try {
     $mail->Port = SMTP_PORT; //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('mail@portfolio.sannex.ng', 'Portfolio Contact');
-    $mail->addAddress('BlessingPatrick0610@outlook.com'); //Add a recipient
+    $mail->AddReplyTo($from, $name);
+    $mail->setFrom(SMTP_USERNAME, $name);
+    $mail->addAddress('BlessingPatrick0610@outlook.com', 'Blessing Patrick'); //Add a recipient
 
     //Content
     $mail->isHTML(true); //Set email format to HTML
-    $mail->Subject = $subject;
-    $mail->Body = "<h5>Message from $name ($from)</h5><p>$message</p>";
-    $mail->AltBody = "Message from $name - $from. $message";
+    $mail->Subject = "BP Portfolio - $subject";
+    $mail->Body = "<h5>Contact message from $name</h5>
+                    <p> email: $from</p>
+                    <p> $message</p>";
+    $mail->AltBody = "Contact message from $name, email: $from, $message";
 
     $mail->send();
     echo 'OK';
