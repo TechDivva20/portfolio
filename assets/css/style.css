@@ -24,37 +24,14 @@ h1 {
   
   letter-spacing: 3px;
   border-right: 5px solid;
-  width: 48%;
+  width: 18%;
   white-space: nowrap;
   overflow: hidden;
   animation: 
-  typing var(--typewriterSpeed) steps(35) infinite,
+  typing var(--typewriterSpeed) steps(9) infinite,
   cursor .4s step-end infinite alternate;
 }
 
-.but .btn { 
-  margin-top: 50px;
-  left: auto;
-  margin-left: -90px;
-  position: absolute;
-  background: rgb(55, 78, 147);
-  backdrop-filter: saturate(180%) blur(10px);
-  border-radius: 80px;
-  width: 180px;
-  height: 60px;
-  transform: rotate(130deg);
-}
-.butt .btn{
-  margin-top: 150px;
-  left: auto;
-  margin-left: -85px;
-  position: absolute;
-  background-color:#852;
-  border-radius: 80px;
-  width: 190px;
-  height: 60px;
-  transform: rotate(130deg);
-}
 
 @keyframes cursor{
   50%{background-color: transparent }
@@ -73,59 +50,6 @@ h1 {
   }
 }
 
-/*
-@media only screen and (min-width: 992px) {
-  .but .btn { 
-    margin-top: 50px;
-    left: auto;
-    margin-left: -90px;
-    position: absolute;
-    background: rgb(55, 78, 147);
-    backdrop-filter: saturate(180%) blur(10px);
-    border-radius: 80px;
-    width: 180px;
-    height: 60px;
-    transform: rotate(130deg);
-  }
-  .butt .btn{
-    margin-top: 150px;
-    left: auto;
-    margin-left: -85px;
-    position: absolute;
-    background-color:#852;
-    border-radius: 80px;
-    width: 190px;
-    height: 60px;
-    transform: rotate(130deg);
-  }
-}
-
-
-@media only screen and (min-width: 1200px) {
-   .but .btn { 
-  margin-top: 50px;
-  left: auto;
-  margin-left: -90px;
-  position: absolute;
-  background: rgb(55, 78, 147);
-  backdrop-filter: saturate(180%) blur(10px);
-  border-radius: 80px;
-  width: 180px;
-  height: 60px;
-  transform: rotate(130deg);
-}
-.butt .btn{
-  margin-top: 150px;
-  left: auto;
-  margin-left: -85px;
-  position: absolute;
-  background-color:#852;
-  border-radius: 80px;
-  width: 190px;
-  height: 60px;
-  transform: rotate(130deg);
-}
-}*/
 
 .wrapper .button{
   display: inline-block;
